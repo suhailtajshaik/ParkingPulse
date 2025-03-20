@@ -16,7 +16,7 @@ ParkingPulse is a web application designed to manage and monitor parking events 
 To get started with ParkingPulse, clone the repository and install the dependencies:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/suhailtajshaik/ParkingPulse.git
 cd ParkingPulse
 npm install
 ```
