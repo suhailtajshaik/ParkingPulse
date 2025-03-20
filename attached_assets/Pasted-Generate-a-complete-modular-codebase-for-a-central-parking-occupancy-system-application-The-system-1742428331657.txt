@@ -1,0 +1,47 @@
+Generate a complete, modular codebase for a central parking occupancy system application. The system must include both a Node.js backend and a React.js front end. The application should meet the following requirements:
+
+Backend (Node.js with Express & WebSocket):
+
+Express API & WebSocket Server:
+
+Create an Express.js application that exposes a REST API endpoint to receive events from Raspberry Pi devices. Each event will contain:
+gateId (e.g., 'level1-east')
+direction (either 'entry' or 'exit')
+timestamp (ISO formatted date/time)
+Optional metadata (like bounding box or centroid coordinates)
+Implement a WebSocket server that accepts connections from client applications (i.e., the React.js dashboard).
+When an event is received via the API endpoint, update the current parking occupancy (using simple in-memory data or optionally Redis) and immediately broadcast the update and event details over the WebSocket connection.
+Database Integration:
+
+Integrate MongoDB to persist incoming events and occupancy data.
+Create Mongoose schemas/models for event logs and current occupancy.
+Ensure that each event is saved to the database for historical reference.
+Occupancy Update Logic:
+
+Process events to update a real-time occupancy counter.
+Implement basic error handling and validation for incoming data.
+Optionally include a queuing mechanism to handle bursts of incoming events.
+Deployment & Testing:
+
+Include instructions in the comments for installing dependencies, starting the server, and running basic tests.
+Make sure to comment the code for clarity.
+Front End (React.js):
+
+Real-Time Dashboard:
+
+Create a React.js application that connects to the WebSocket server provided by the backend.
+Display a real-time dashboard that includes:
+The current occupancy count.
+A live feed/list of recent events with details (Gate ID, direction, timestamp).
+A simple alert system for any errors or connectivity issues.
+Use a state management solution (like React Context API or simple useState hooks) to handle real-time updates.
+UI/UX Considerations:
+
+Ensure the dashboard is responsive.
+Include basic styling and layout (using CSS or a library like styled-components) with clear sections for occupancy, event logs, and alerts.
+Add comments to the code to explain key parts of the implementation.
+Instructions & Testing:
+
+Provide clear instructions on how to run the front-end application.
+Include any necessary scripts for building and serving the application.
+The entire system must be designed to handle a delay of less than 5 seconds from the time an event is generated on the Raspberry Pi until the dashboard reflects the occupancy update. Comments in the code should explain the key design decisions and any assumptions made.
